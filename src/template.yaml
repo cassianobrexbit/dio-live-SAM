@@ -1,0 +1,46 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+
+Resources:
+  appDB:
+    Type: AWS::Serverless::SimpleTable
+    Properties:
+      TableName: personTable
+      PrimaryKey:
+        Name: id
+        Type: String
+      ProvisionedThroughput:
+        ReadCapacityUnits: 5
+        WriteCapacityUnits: 5
+        
+  LambdaWrite:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: insert/
+      Handler: insertPerson.handler
+      Runtime: nodejs14.x
+      Events:
+        apiForLambda:
+          Type: Api 
+          Properties:
+            Path: /insert
+            Method: post
+      Policies:
+        DynamoDBWritePolicy:
+          TableName: !Ref appDB
+            
+  LambdaRead:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: get/
+      Handler: getPerson.handler
+      Runtime: nodejs14.x
+      Events:
+        apiForLambda:
+          Type: Api 
+          Properties:
+            Path: /get/{id}
+            Method: get
+      Policies:
+        DynamoDBReadPolicy:
+          TableName: !Ref appDB
