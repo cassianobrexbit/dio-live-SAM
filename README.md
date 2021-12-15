@@ -36,3 +36,4 @@ Repositório para o Live Coding do dia 15/12/2021 sobre infraestrutura como cód
  - Build ```sam build```
  - Deploy da aplicação (assistido) ```sam deploy --guided```
  - Testar com CURL ou Postman
+ - Limpar os recursos criados ```sam delete```
