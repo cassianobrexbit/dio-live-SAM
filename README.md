@@ -7,6 +7,7 @@ Repositório para o Live Coding do dia 15/12/2021 sobre infraestrutura como cód
  - AWS SAM CLI
  - AWS SAM Template
  - Git
+ - Docker
  
 ## Recursos AWS utilizados
 
@@ -22,6 +23,7 @@ Repositório para o Live Coding do dia 15/12/2021 sobre infraestrutura como cód
 
  - [Criar conta na AWS](https://aws.amazon.com/pt/premiumsupport/knowledge-center/create-and-activate-aws-account/)
  - [Download SAM CLI](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-install.html)
+ - [Instalar Docker](https://docs.docker.com/desktop/windows/install/)
 
 ### Configurar credenciais de usuário da AWS
 
