@@ -44,3 +44,19 @@ Resources:
       Policies:
         DynamoDBReadPolicy:
           TableName: !Ref appDB
+          
+  LambdaScan:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: scan/
+      Handler: listPerson.lambda_handler
+      Runtime: python3.8
+      Events:
+        apiForLambda:
+          Type: Api 
+          Properties:
+            Path: /list
+            Method: get
+      Policies:
+        DynamoDBReadPolicy:
+          TableName: !Ref appDB
